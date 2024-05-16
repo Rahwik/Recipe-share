@@ -20,5 +20,22 @@ def recipes(request):
 
             )
              return redirect('/recipes/')
- 
+
     return render(request,'recipes.html')
+
+def shared(request):
+    context={'page':'about'}
+    queryset = Recipe.objects.all()
+    context = {'recipes': queryset}
+    return render(request, "shared.html",context)
+
+def delete_recipe(request, id):
+    queryset = Recipe.objects.get(id = id)
+    queryset.delete()
+    return redirect('/shared/')
+    
+
+
+
+     
+

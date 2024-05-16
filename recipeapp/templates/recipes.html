@@ -51,7 +51,19 @@ body, html {
 
 .box input[type="text"],
 .box textarea,
-.box input[type="file"] {
+.box input[type="file"],
+.btn1 {
+  display: block;
+  margin: 20px auto;
+  background: #262e49;
+  border: 0;
+  border-radius: 5px;
+  padding: 14px 10px;
+  width: 320px;
+  outline: none;
+  color: #d6d6d6;
+}
+.btn2 {
   display: block;
   margin: 20px auto;
   background: #262e49;
@@ -69,7 +81,8 @@ body, html {
 
 .box input[type="text"]:focus,
 .box textarea:focus,
-.box input[type="file"]:focus {
+.box input[type="file"]:focus,
+.btn1:focus {
   border: 1px solid #79A6FE;
 }
 
@@ -83,6 +96,22 @@ body, html {
   font-size: 16px;
   margin-bottom: 20px;
   cursor: pointer;
+}
+
+.btn2 {
+  border: 0;
+  background: #7f5feb;
+  color: #dfdeee;
+  border-radius: 100px;
+  width: 322px;
+  height: 20px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.btn2:hover {
+  background: #5d33e6;
 }
 
 .btn1:hover {
@@ -110,17 +139,18 @@ body, html {
 </style>
 </head>
 <body>
-<div class="container">
-  <span class="error animated tada" id="msg"></span>
-  <form class="box" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <h4>Share<span>Recipes</span></h4>
-    <h5>Let's Know about the tasty recipe.</h5>
-    <input name="recipe_name" type="text" placeholder="Recipe Name" autocomplete="off" class="form-control">
-    <textarea name="recipe_description" placeholder="Recipe Description" rows="4" class="form-control"></textarea>
-    <input name="recipe_image" type="file" class="form-control">
-    <input type="submit" value="Submit Recipe" class="btn1">
-  </form>
-</div>
+  <div class="container">
+    <span class="error animated tada" id="msg"></span>
+    <form class="box" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h4>Share<span>Recipes</span></h4>
+      <h5>Let's Know about the tasty recipe.</h5>
+      <input name="recipe_name" type="text" placeholder="Recipe Name" autocomplete="off" class="form-control">
+      <textarea name="recipe_description" placeholder="Recipe Description" rows="4" class="form-control"></textarea>
+      <input name="recipe_image" type="file" class="form-control">
+      <input type="submit" value="Submit Recipe" class="btn1">
+    </form>
+    <a href="/shared/" class="btn2">View shared Recipes</a>
+  </div>
 </body>
 </html>
