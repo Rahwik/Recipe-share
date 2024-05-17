@@ -22,7 +22,7 @@ from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    path('recipes/', recipes, name="recipes"),
+    path('', recipes, name="recipes"),
     path('shared/', shared, name="shared"),
     path('delete_recipe/<id>/', delete_recipe, name="delete_recipe"),
     path('update_recipe/<id>/', update_recipe, name="update_recipe"),
