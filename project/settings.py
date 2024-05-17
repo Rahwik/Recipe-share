@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-g-!gsrkg4v1!*6r$v_sh+5z8)gbn3&qbiblpl#p$-dlory+cr$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app' , '.now.sh']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -125,16 +125,6 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIR = {
     os.path.join(BASE_DIR , "public/static")
 }
-import os
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')
-
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'public/static') 
-MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
