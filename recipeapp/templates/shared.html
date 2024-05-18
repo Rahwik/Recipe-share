@@ -15,6 +15,8 @@
             line-height: 1.42em;
             color: #A7A1AE;
             background-color: #1d243d;
+            margin: 0;
+            padding: 0;
         }
 
         h1 {
@@ -23,6 +25,7 @@
             line-height: 1em;
             text-align: center;
             color: #4DC3FA;
+            margin: 20px 0;
         }
 
         h2 {
@@ -56,42 +59,30 @@
             text-align: center;
             color: #185875;
             padding: 12px 8px;
-            /* Adjust padding for better appearance */
         }
 
         .container td {
             font-weight: normal;
             font-size: 1em;
-            -webkit-box-shadow: 0 2px 2px -2px #0E1119;
-            -moz-box-shadow: 0 2px 2px -2px #0E1119;
             box-shadow: 0 2px 2px -2px #0E1119;
             text-align: center;
             color: #FFF;
-            /* Change text color for better visibility */
             padding: 8px;
-            /* Adjust padding for better appearance */
         }
 
         .container td img {
             max-width: 100%;
-            /* Ensure images don't exceed their container */
             height: auto;
-            /* Maintain aspect ratio */
             display: block;
-            /* Ensure images are centered within their cells */
             margin: 0 auto;
-            /* Center images horizontally */
             border-radius: 5px;
-            /* Add rounded corners */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            /* Add a subtle shadow */
         }
 
         .container td a.btn {
             display: inline-block;
             padding: 8px 16px;
             background-color: #444791;
-            /* Change to your desired button color */
             color: #FFF;
             text-decoration: none;
             border-radius: 4px;
@@ -100,32 +91,23 @@
 
         .container td a.btn:hover {
             background-color: #E74C3C;
-            /* Change to a darker shade when hovered */
         }
 
         .container {
-            text-align: left;
-            overflow: hidden;
             width: 80%;
             margin: 0 auto;
-            display: table;
-            padding: 0 0 8em 0;
             border-collapse: collapse;
-            /* Collapse border spacing */
         }
 
         .container th,
         .container td {
             border: 1px solid #1F2739;
-            /* Add border to cells */
         }
 
-        /* Background-color of the odd rows */
         .container tr:nth-child(odd) {
             background-color: #212942;
         }
 
-        /* Background-color of the even rows */
         .container tr:nth-child(even) {
             background-color: #262e49;
         }
@@ -136,39 +118,31 @@
 
         .container tr:hover {
             background-color: #464A52;
-            -webkit-box-shadow: 0 6px 6px -6px #0E1119;
-            -moz-box-shadow: 0 6px 6px -6px #0E1119;
             box-shadow: 0 6px 6px -6px #0E1119;
         }
 
-        /* Style for the form */
         form {
             text-align: center;
             margin-bottom: 20px;
         }
 
-        /* Style for the search input */
         input[type="text"] {
-            padding: 10px 10px;
-            line-height: 1.6em;
-            /* Adjust line-height to match button */
+            padding: 10px;
+            margin-top: 2%;
+            margin-bottom: 3%;
             border: 1px solid #ccc;
             border-radius: 4px 0 0 4px;
-            width: calc(84% - 120px);
-            /* Adjust width to leave space for button */
+            width: calc(81% - 110px);
         }
 
-        /* Style for the search button */
         .btn-primary {
-            padding: 10px 10px;
+            padding: 10px;
             background-color: #444791;
             color: #FFF;
             border: none;
             border-radius: 0 4px 4px 0;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            line-height: 1.6em;
-            /* Match line-height with input */
         }
 
         .btn-primary:hover {
@@ -177,14 +151,12 @@
 
         .container td a.btn.btn-danger {
             margin: 10px;
-            /* Add space between the buttons */
         }
 
         .container td a.btn.btn-success {
             display: inline-block;
             padding: 8px 12px;
             background-color: #444791;
-            /* Green color for success */
             color: #FFF;
             text-decoration: none;
             border-radius: 4px;
@@ -193,7 +165,55 @@
 
         .container td a.btn.btn-success:hover {
             background-color: #27ae60;
-            /* Darker shade of green on hover */
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .container {
+                width: 100%;
+                overflow-x: auto;
+            }
+
+            .container th,
+            .container td {
+                padding: 8px;
+                font-size: 0.9em;
+            }
+
+            input[type="text"] {
+                width: calc(100% - 100px);
+            }
+
+            .btn-primary {
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .container th,
+            .container td {
+                padding: 6px;
+                font-size: 0.8em;
+            }
+
+            input[type="text"] {
+                width: calc(100% - 90px);
+            }
+
+            .btn-primary {
+                width: 90px;
+            }
+
+            .container td a.btn {
+                padding: 6px 12px;
+            }
         }
     </style>
 </head>
@@ -202,7 +222,6 @@
 
     <h1>&lt;Shared&gt; Recipes</h1>
 
-    <!-- Form for searching -->
     <form>
         <input name="search" type="text" placeholder="Search Recipes....." autocomplete="off" class="form-control">
         <button type="submit" class="btn btn-primary">Search</button>
@@ -235,12 +254,11 @@
                 <td>{{ recipe.recipe_name }}</td>
                 <td>{{ recipe.recipe_description }}</td>
                 <td>
-                    <img src="/media/{{ recipe.recipe_image }}">
+                    <img src="/public/static/{{recipe.recipe_image }}">
                 </td>
                 <td>
                     <a href="/delete_recipe/{{recipe.id}}/" class="btn btn-danger">delete</a>
-
-                    <a href="/update_recipe/{{recipe.id}}/" class="btn btn-success" >Update</a>
+                    <a href="/update_recipe/{{recipe.id}}/" class="btn btn-success">Update</a>
                 </td>
             </tr>
             {% endfor %}
