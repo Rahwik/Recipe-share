@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Update Recipes</title>
+  <title>Register</title>
   <!-- CSS Libraries Used -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -43,7 +43,6 @@
       color: white;
     }
 
-
     .container {
       margin: 50px auto;
       text-align: center;
@@ -54,6 +53,7 @@
       width: 400px;
       height: auto;
       box-shadow: 1px 1px 108.8px 19.2px rgb(25, 31, 53);
+      padding: 20px;
     }
 
     .box h4 {
@@ -76,8 +76,7 @@
     }
 
     .box input[type="text"],
-    .box textarea,
-    .box input[type="file"],
+    .box input[type="password"],
     .btn1 {
       display: block;
       margin: 20px auto;
@@ -90,25 +89,8 @@
       color: #d6d6d6;
     }
 
-    .btn2 {
-      display: block;
-      margin: 20px auto;
-      background: #262e49;
-      border: 0;
-      border-radius: 5px;
-      padding: 14px 10px;
-      width: 320px;
-      outline: none;
-      color: #d6d6d6;
-    }
-
-    .box textarea {
-      height: 120px;
-    }
-
     .box input[type="text"]:focus,
-    .box textarea:focus,
-    .box input[type="file"]:focus,
+    .box input[type="password"]:focus,
     .btn1:focus {
       border: 1px solid #79A6FE;
     }
@@ -123,22 +105,6 @@
       font-size: 16px;
       margin-bottom: 20px;
       cursor: pointer;
-    }
-
-    .btn2 {
-      border: 0;
-      background: #7f5feb;
-      color: #dfdeee;
-      border-radius: 100px;
-      width: 322px;
-      height: 20px;
-      font-size: 16px;
-      margin-bottom: 20px;
-      cursor: pointer;
-    }
-
-    .btn2:hover {
-      background: #5d33e6;
     }
 
     .btn1:hover {
@@ -158,6 +124,11 @@
       display: none;
     }
 
+    .custom-alert {
+      background-color: #007bff;
+      color: white;
+    }
+
     .footer {
       color: #78797d;
       font-size: 14px;
@@ -167,25 +138,31 @@
 </head>
 
 <body>
+
   <div class="navbar">
-    <a href="/logout/">Logout</a>
-    <a href="/register/">Share</a>
+    <a href="/login/">Login</a>
   </div>
 
   <div class="container">
     <span class="error animated tada" id="msg"></span>
-    <form class="box" method="post" enctype="multipart/form-data">
+    <form class="box" method="post">
       {% csrf_token %}
-      <h4>Share<span>Recipes</span></h4>
-      <h5>Let's Know about the tasty recipe.</h5>
-      <input name="recipe_name" value="{{recipe.recipe_name}}" type="text" placeholder="Recipe Name" autocomplete="off"
-        class="form-control">
-      <textarea name="recipe_description" value="" placeholder="Recipe Description" rows="4"
-        class="form-control">{{recipe.recipe_description}}</textarea>
-      <input name="recipe_image" type="file" class="form-control">
-      <input type="submit" value="Update Recipe" class="btn1">
+      <h4>Register<span>Now</span></h4>
+      <h5>Create your account below.</h5>
+      {% if messages %}
+      <div class="alert alert-primary" role="alert" style="color: white;">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+      </div>
+      {% endif %}
+      <input name="first_name" type="text" placeholder="First Name" autocomplete="off" class="form-control">
+      <input name="last_name" type="text" placeholder="Last Name" autocomplete="off" class="form-control">
+      <input name="username" type="text" placeholder="Username" autocomplete="off" class="form-control">
+      <input name="password" type="password" placeholder="Password" class="form-control">
+      <input type="submit" value="Register" class="btn1">
     </form>
-    <a href="/shared/" class="btn2">View shared Recipes</a>
+
   </div>
 </body>
 

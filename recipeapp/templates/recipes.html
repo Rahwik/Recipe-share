@@ -1,144 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Share Recipes</title>
-<!-- CSS Libraries Used -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
-<style>
-/* Custom Styles */
-body, html {
-  font-family: 'Source Sans Pro', sans-serif;
-  background-color: #1d243d;
-  padding: 0;
-  margin: 0;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Recipes</title>
+  <!-- CSS Libraries Used -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
+  <style>
+    /* Custom Styles */
+    body,
+    html {
+      font-family: 'Source Sans Pro', sans-serif;
+      background-color: #1d243d;
+      padding: 0;
+      margin: 0;
+    }
 
-.container {
-  margin: 50px auto;
-  text-align: center;
-  background-color: rgb(33, 41, 66);
-  border-radius: 9px;
-  border-top: 10px solid #79a6fe;
-  border-bottom: 10px solid #8BD17C;
-  width: 400px;
-  height: auto;
-  box-shadow: 1px 1px 108.8px 19.2px rgb(25, 31, 53);
-}
+    .navbar {
+      background-color: rgba(45, 54, 79, 0.8);
+      /* Transparent background */
+      overflow: hidden;
+      display: flex;
+      justify-content: flex-end;
+      /* Move items to the right */
+      padding: 10px 20px;
+    }
 
-.box h4 {
-  color: #5c6bc0;
-  font-size: 18px;
-  margin-top: 40px;
-}
+    .navbar a {
+      display: block;
+      color: #dfdeee;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
 
-.box h4 span {
-  color: #dfdeee;
-  font-weight: lighter;
-}
+    .navbar a:hover {
+      background-color: #5d33e6;
+      color: white;
+    }
 
-.box h5 {
-  font-size: 13px;
-  color: #a1a4ad;
-  letter-spacing: 1.5px;
-  margin-top: -15px;
-  margin-bottom: 30px;
-}
+    .container {
+      margin: 50px auto;
+      text-align: center;
+      background-color: rgb(33, 41, 66);
+      border-radius: 9px;
+      border-top: 10px solid #79a6fe;
+      border-bottom: 10px solid #8BD17C;
+      width: 400px;
+      height: auto;
+      box-shadow: 1px 1px 108.8px 19.2px rgb(25, 31, 53);
+    }
 
-.box input[type="text"],
-.box textarea,
-.box input[type="file"],
-.btn1 {
-  display: block;
-  margin: 20px auto;
-  background: #262e49;
-  border: 0;
-  border-radius: 5px;
-  padding: 14px 10px;
-  width: 320px;
-  outline: none;
-  color: #d6d6d6;
-}
-.btn2 {
-  display: block;
-  margin: 20px auto;
-  background: #262e49;
-  border: 0;
-  border-radius: 5px;
-  padding: 14px 10px;
-  width: 320px;
-  outline: none;
-  color: #d6d6d6;
-}
+    .box h4 {
+      color: #5c6bc0;
+      font-size: 18px;
+      margin-top: 40px;
+    }
 
-.box textarea {
-  height: 120px;
-}
+    .box h4 span {
+      color: #dfdeee;
+      font-weight: lighter;
+    }
 
-.box input[type="text"]:focus,
-.box textarea:focus,
-.box input[type="file"]:focus,
-.btn1:focus {
-  border: 1px solid #79A6FE;
-}
+    .box h5 {
+      font-size: 13px;
+      color: #a1a4ad;
+      letter-spacing: 1.5px;
+      margin-top: -15px;
+      margin-bottom: 30px;
+    }
 
-.btn1 {
-  border: 0;
-  background: #7f5feb;
-  color: #dfdeee;
-  border-radius: 100px;
-  width: 340px;
-  height: 49px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
+    .box input[type="text"],
+    .box textarea,
+    .box input[type="file"],
+    .btn1 {
+      display: block;
+      margin: 20px auto;
+      background: #262e49;
+      border: 0;
+      border-radius: 5px;
+      padding: 14px 10px;
+      width: 320px;
+      outline: none;
+      color: #d6d6d6;
+    }
 
-.btn2 {
-  border: 0;
-  background: #7f5feb;
-  color: #dfdeee;
-  border-radius: 100px;
-  width: 322px;
-  height: 20px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
+    .btn2 {
+      display: block;
+      margin: 20px auto;
+      background: #262e49;
+      border: 0;
+      border-radius: 5px;
+      padding: 14px 10px;
+      width: 320px;
+      outline: none;
+      color: #d6d6d6;
+    }
 
-.btn2:hover {
-  background: #5d33e6;
-}
+    .box textarea {
+      height: 120px;
+    }
 
-.btn1:hover {
-  background: #5d33e6;
-}
+    .box input[type="text"]:focus,
+    .box textarea:focus,
+    .box input[type="file"]:focus,
+    .btn1:focus {
+      border: 1px solid #79A6FE;
+    }
 
-.error {
-  background: #ff3333;
-  text-align: center;
-  width: 337px;
-  height: 20px;
-  padding: 2px;
-  border: 0;
-  border-radius: 5px;
-  margin: 10px auto;
-  color: white;
-  display: none;
-}
+    .btn1 {
+      border: 0;
+      background: #7f5feb;
+      color: #dfdeee;
+      border-radius: 100px;
+      width: 340px;
+      height: 49px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
 
-.footer {
-  color: #78797d;
-  font-size: 14px;
-  text-align: center;
-}
-</style>
+    .btn2 {
+      border: 0;
+      background: #7f5feb;
+      color: #dfdeee;
+      border-radius: 100px;
+      width: 322px;
+      height: 20px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .btn2:hover {
+      background: #5d33e6;
+    }
+
+    .btn1:hover {
+      background: #5d33e6;
+    }
+
+    .error {
+      background: #ff3333;
+      text-align: center;
+      width: 337px;
+      height: 20px;
+      padding: 2px;
+      border: 0;
+      border-radius: 5px;
+      margin: 10px auto;
+      color: white;
+      display: none;
+    }
+
+    .footer {
+      color: #78797d;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
+  <div class="navbar">
+    <a href="/logout/">Logout</a>
+    <a href="/shared/">Shared</a>
+  </div>
   <div class="container">
     <span class="error animated tada" id="msg"></span>
     <form class="box" method="post" enctype="multipart/form-data">
@@ -153,4 +184,5 @@ body, html {
     <a href="/shared/" class="btn2">View shared Recipes</a>
   </div>
 </body>
+
 </html>

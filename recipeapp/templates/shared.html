@@ -19,6 +19,30 @@
             padding: 0;
         }
 
+        .navbar {
+            background-color: rgba(45, 54, 79, 0.8);
+            /* Transparent background */
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-end;
+            /* Move items to the right */
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            display: block;
+            color: #dfdeee;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #5d33e6;
+            color: white;
+        }
+
+
         h1 {
             font-size: 3em;
             font-weight: 300;
@@ -220,6 +244,11 @@
 
 <body>
 
+    <div class="navbar">
+        <a href="/logout/">Logout</a>
+        <a href="/recipes/">Share</a>
+    </div>
+
     <h1>&lt;Shared&gt; Recipes</h1>
 
     <form>
@@ -254,7 +283,7 @@
                 <td>{{ recipe.recipe_name }}</td>
                 <td>{{ recipe.recipe_description }}</td>
                 <td>
-                    <img src="/public/static/{{recipe.recipe_image }}">
+                    <img src="/media/{{recipe.recipe_image }}">
                 </td>
                 <td>
                     <a href="/delete_recipe/{{recipe.id}}/" class="btn btn-danger">delete</a>
